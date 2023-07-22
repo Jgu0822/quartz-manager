@@ -191,7 +191,8 @@ Quartz SchedulerFactoryBean을 생성한 경우 @Primary 태그를 달아서 동
 
 
 ## Quartz Manager Starter UI Lib
-You can optionally import the following dependency to have the UI Dashboard to interact with the Quartz Manager API.
+You can optionally import the following dependency to have the UI Dashboard to interact with the Quartz Manager API.<br>
+Quartz Manager API와 상호작용하는 UI 대시보드를 사용하려면 다음 의존성을 선택적으로 가져올 수 있습니다.
 
 ### Dependency
 
@@ -209,22 +210,29 @@ implementation group: 'it.fabioformosa.quartz-manager', name: 'quartz-manager-st
 ``` 
 
 ### Reach out the UI Console at URL
-if you run locally [http://localhost:8080/quartz-manager-ui/index.html](http://localhost:8080/quartz-manager-ui/index.html)  
+if you run locally [http://localhost:8080/quartz-manager-ui/index.html](http://localhost:8080/quartz-manager-ui/index.html)<br>
+로컬에서 실행 중이면 [http://localhost:8080/quartz-manager-ui/index.html](http://localhost:8080/quartz-manager-ui/index.html) 에서 UI 콘솔을 확인할 수 있습니다.
 
 
 
 ## Quartz Manager Starter Security Lib
 
 Import this optional dependency, if you want to enable a security layer and allow the access to the REST API and UI only to authenticated users.  
-The authentication model of Quartz Manager is based on [JWT](https://jwt.io/).
+The authentication model of Quartz Manager is based on [JWT](https://jwt.io/).<br>
+인증된 사용자만 REST API 및 UI에 접근할 수 있도록 보안 계층을 활성화하려면 이 선택적인 의존성을 가져올 수 있습니다. Quartz Manager의 인증 모델은 JWT를 기반으로 합니다.
 
-If you're going to import Quartz Manager in a project with an existing configuration of Spring Security, consider the following:
-- Only if your existing security is cookie-based, actually you don't need to import the module `quartz-manager-security-lib`. Simply, Quartz Manager will be under the hat of your security setup. In all other cases (based on HTTP headers, query params, etc) Quartz Manager is not aware about your auth token and it will implement its own authentication model.
-- Quartz Manager Security relies on Spring Security upon a dedicated *HTTP Spring Security Chain* applied to the base path `/quartz-manager`. So it doesn't interfere with your existing security setup.
-- Quartz Manager Security keeps simple the authentication, adopting the InMemory Model. You have to define the users (in terms of username/credentials passed via `application.properties`) can access to Quartz Manager.
+If you're going to import Quartz Manager in a project with an existing configuration of Spring Security, consider the following:<br>
+기존에 Spring Security 구성이 있는 프로젝트에 Quartz Manager를 가져올 경우 다음과 같은 사항을 고려하십시오:
+- Only if your existing security is cookie-based, actually you don't need to import the module `quartz-manager-security-lib`. Simply, Quartz Manager will be under the hat of your security setup. In all other cases (based on HTTP headers, query params, etc) Quartz Manager is not aware about your auth token and it will implement its own authentication model.<br>
+기존 보안이 쿠키 기반인 경우, 실제로 quartz-manager-security-lib 모듈을 가져올 필요가 없습니다. Quartz Manager는 보안 설정 아래에 있을 것입니다. 기타 모든 경우 (HTTP 헤더, 쿼리 매개변수 기반 등)에서 Quartz Manager는 인증 토큰을 인식하지 못하고 자체적으로 인증 모델을 구현할 것입니다.
+- Quartz Manager Security relies on Spring Security upon a dedicated *HTTP Spring Security Chain* applied to the base path `/quartz-manager`. So it doesn't interfere with your existing security setup.<br>
+Quartz Manager Security는 "/quartz-manager" 기본 경로에 대해 별도의 HTTP Spring Security 체인을 사용하여 Spring Security를 기반으로 합니다. 따라서 기존의 보안 설정과 간섭하지 않습니다.
+- Quartz Manager Security keeps simple the authentication, adopting the InMemory Model. You have to define the users (in terms of username/credentials passed via `application.properties`) can access to Quartz Manager.<br>
+Quartz Manager Security는 간단한 인메모리 모델을 채택하여 인증을 수행합니다. Quartz Manager에 접근할 수 있는 사용자를 정의해야 합니다(사용자 이름/자격 증명은 application.properties를 통해 전달됩니다). 기본적으로 UI는 JWT 토큰을 인증 헤더에 "Bearer" 형식으로 첨부합니다.
 - By default, the UI attaches the JWT Token to each request in the authorization header in the "Bearer" format.
 
-Future development: the Quart Manager Security OAuth2 client.
+Future development: the Quart Manager Security OAuth2 client.<br>
+미래 개발 계획으로는 Quart Manager Security OAuth2 클라이언트를 지원할 예정입니다.
 
 
 ### Dependency
