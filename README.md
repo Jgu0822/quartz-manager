@@ -140,7 +140,8 @@ Quartz Manager API의 OpenAPI Specification을 노출하려면 app prop quartz-m
 Reach out the swagger-ui at the URL(Swagger-UI는 다음 URL에서 확인할 수 있습니다.):
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-If your project has already an OpenAPI instance and you've set `quartz-manager.oas.enabled=true`, then make sure to add an OpenApiGroup to group the API of your application. Quart Manager exposes its API in group called "Quartz Manager". If you use OAS Annotations:
+If your project has already an OpenAPI instance and you've set `quartz-manager.oas.enabled=true`, then make sure to add an OpenApiGroup to group the API of your application. Quart Manager exposes its API in group called "Quartz Manager". If you use OAS Annotations :<br>
+프로젝트에 이미 OpenAPI 인스턴스가 있고 quartz-manager.oas.enabled=true로 설정한 경우, 애플리케이션의 API를 그룹화하는 OpenApiGroup을 추가해야 합니다. Quart Manager는 "Quartz Manager"라는 그룹으로 API를 노출합니다. OAS 주석을 사용하는 경우 다음과 같이 설정합니다 :
 ```
   @Bean
   public GroupedOpenApi simplySpringDemoGroupedOpenApi() {
@@ -149,26 +150,34 @@ If your project has already an OpenAPI instance and you've set `quartz-manager.o
 ```
 
 ### QUARTZ SETTINGS
-Quartz Manager creates its own instance of a [Quartz Scheduler](http://www.quartz-scheduler.org/). 
+Quartz Manager creates its own instance of a [Quartz Scheduler](http://www.quartz-scheduler.org/).<br>
+Quartz Manager는 자체적으로 Quartz 스케줄러 인스턴스를 생성합니다.
 
-By default, the managed quartz instance is instantiated with the following props:
+By default, the managed quartz instance is instantiated with the following props:<br>
+기본적으로 관리되는 Quartz 인스턴스는 다음과 같은 속성으로 인스턴스화됩니다 :
 
 ```
 org.quartz.scheduler.instanceName=quartz-manager-scheduler
 org.quartz.threadPool.threadCount=1
 ```
 
-You can customize the configuration of the Quartz managed by Quartz Manager creating a file `managed-quartz.properties` in the classpath (`src/main/resources`).   
+You can customize the configuration of the Quartz managed by Quartz Manager creating a file `managed-quartz.properties` in the classpath (`src/main/resources`).<br>
+uartz Manager가 생성하는 Quartz 인스턴스의 구성을 사용자 정의하려면 classpath( src/main/resources)에 managed-quartz.properties 파일을 만들어서 사용합니다.<br>
 For further details about the quartz properties, click [here](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/configuration/).
 
-#### Existing Quartz Instance
-Quarz Manager imports transitively the [Quartz Scheduler library](https://mvnrepository.com/artifact/org.quartz-scheduler/quartz) ver 2.3.2.
+#### Existing Quartz Instance (기존의 Quartz 인스턴스)
+Quarz Manager imports transitively the [Quartz Scheduler library](https://mvnrepository.com/artifact/org.quartz-scheduler/quartz) ver 2.3.2.<br>
+Quartz Manager는 Quartz 스케줄러 라이브러리 버전 2.3.2를 타사적으로 가져옵니다.<br>
+
 However, Quartz Manager can be imported even thought you've already imported the quartz scheduler lib. Indeed Quartz Manager coexists with the existing Quarz Scheduler Instance you've created in your project. In that case, Quartz Manager will manage the triggers created by it and it won't interfere with the other quartz instances.
-The prerequesite is that you've imported a quartz scheduler ver 2.3.x.
+The prerequesite is that you've imported a quartz scheduler ver 2.3.x.<br>
+Quartz Manager는 Quartz 스케줄러 라이브러리 버전 2.3.2를 타사적으로 가져옵니다. 그러나 Quartz Manager는 기존에 가져온 Quartz 스케줄러 라이브러리가 있는 경우에도 가져올 수 있습니다. 실제로 Quartz Manager는 프로젝트에서 생성한 기존 Quartz 스케줄러 인스턴스와 함께 공존할 수 있습니다. 이 경우 Quartz Manager는 해당 인스턴스에서 생성한 트리거를 관리하며 다른 quartz 인스턴스와 간섭하지 않습니다. 전제 조건은 Quartz 스케줄러 버전 2.3.x를 가져왔을 경우입니다.
 
-You can configure the Quartz instance managed by Quartz Manager through the file `managed-quartz.properties` and your own Quartz instance through the file  `quartz.properties`.
+You can configure the Quartz instance managed by Quartz Manager through the file `managed-quartz.properties` and your own Quartz instance through the file  `quartz.properties`.<br>
+Quartz Manager가 생성한 Quartz 인스턴스와 Quartz Manager가 아닌 기존의 Quartz 인스턴스를 동시에 구성하려면 managed-quartz.properties 파일과 quartz.properties 파일을 사용합니다.
 
-If you've created a `SchedulerFactoryBean`, tag it as `@Primary` to avoid conflicts in-type, since Quartz Manager creates another bean of the same type.
+If you've created a `SchedulerFactoryBean`, tag it as `@Primary` to avoid conflicts in-type, since Quartz Manager creates another bean of the same type.<br>
+Quartz SchedulerFactoryBean을 생성한 경우 @Primary 태그를 달아서 동일한 타입의 충돌을 피해야 합니다.
 
 ```
     @Primary
