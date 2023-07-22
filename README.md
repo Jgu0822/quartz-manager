@@ -130,8 +130,8 @@ Quartz Manager에서 처리 가능한 트리거를 위해 job 클래스는 Abstr
 
 | Property                           | Values   |Mandatory | Default | Description                                                               |
 | :---                               |:---      |:---      |:---     |:--                                                                        |
-| quartz-manager.jobClassPackages    | string   | Yes      |         |java base package which contains your job classes(job 클래스를 포함하는 Java 기본 패키지)                          |
-| quartz-manager.oas.enabled         | boolean  | No       | false   |whether to create an OpenAPI instance to expose the OAS and the Swagger UI (OpenAPI Specification 및 Swagger UI를 노출할지 여부) |
+| quartz-manager.jobClassPackages    | string   | Yes      |         |java base package which contains your job classes<br>(job 클래스를 포함하는 Java 기본 패키지)                          |
+| quartz-manager.oas.enabled         | boolean  | No       | false   |whether to create an OpenAPI instance to expose the OAS and the Swagger UI<br>(OpenAPI Specification 및 Swagger UI를 노출할지 여부) |
 
 
 ### REST API & OpenAPI Specification
