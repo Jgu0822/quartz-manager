@@ -45,7 +45,7 @@ Quartz-Manager는 Quartz 스케줄러와 상호작용하기 위해 REST 엔드�
 ![](https://github.com/fabioformosa/quartz-manager/blob/master/quartz-manager-parent/quartz-manager-web-showcase/src/main/resources/quartz-manager-4-swagger.png)
 
 
-# HOW IT WORKS
+# HOW IT WORKS(작동 방식)
 Quartz Manager can either coexist with your existing instance of Quartz or it can import itself the Quartz dependency.  
 Quartz Manager는 기존 Quartz 인스턴스와 함께 공존할 수 있거나 자체적으로 Quartz 종속성을 가져와서 사용할 수 있습니다.
 
@@ -55,8 +55,7 @@ In the first case, Quartz Manager is compatible with Quartz v2.3.x . Quartz Mana
 In the latter case, in which there isn't an existing quartz instance, you can rely on Quartz Manager to speed up the setup of a Quartz instance, with a persistent storage also if you need it. Futhermore, if you start a bare project from scratch, just to run scheduled jobs, Quartz Manager comes with the option to enable a security layer to protect the API and the UI with an authentication model based on [JWT](https://jwt.io).<br>
 후자의 경우, 기존의 Quartz 인스턴스가 없는 경우 Quartz Manager를 가져와서 Quartz 인스턴스를 빠르게 설정할 수 있습니다. 필요한 경우 영구 저장소를 통해 지속성을 활성화할 수도 있습니다. 또한 예약된 작업만 실행하는 빈 프로젝트를 처음부터 시작하려는 경우, Quartz Manager는 JWT 기반 인증 모델을 사용하여 API와 UI를 보호하는 보안 계층을 활성화할 수 있습니다.
 
-**FEATURES**
-**주요기능**
+**FEATURES(주요기능)**
 * You can schedule a [Quartz Simple Trigger](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-05.html) which allows you to start a job now or in a specific date-time, to set it as a recurring job with a certain time frequency, unlimited or limited on the number of fires and within a certain end date.<br>
 Quartz 간단한 트리거를 예약할 수 있으며, 작업을 지금 또는 특정 일시에 시작하고 일정한 시간 간격으로 반복되도록 설정하거나 실행 횟수를 무제한하거나 특정 종료 일시까지 제한할 수 있습니다.
   
@@ -72,26 +71,30 @@ Quartz 스케줄러를 API를 통해 시작, 일시 중지 및 재개하거나 U
 * You can enable a persistent layer, to persist the config and the progress of your trigger, in a postgresql database.<br>
 PostgreSQL 데이터베이스에 구성 및 트리거 진행 상태를 영속적으로 저장하기 위해 영속성 계층을 활성화할 수 있습니다.
 
-# GET STARTED
+# GET STARTED(시작하기)
 
-**Requirements** 
+**Requirements(요구사항)** 
   Java 9+, Spring Framework 5+ (Spring Boot 2.x)
   
-Quart Manager is a modular library:
-* quartz-manager-starter-api (mandatory)
-* quartz-manager-starter-ui (optional)
-* quartz-manager-starter-security (optional)
-* quartz-manager-starter-persistence (optional)
+Quart Manager is a modular library(Quartz Manager는 모듈식 라이브러리입니다):
+* quartz-manager-starter-api (mandatory-필수)
+* quartz-manager-starter-ui (optional-선택)
+* quartz-manager-starter-security (optional-선택)
+* quartz-manager-starter-persistence (optional-선택)
 
-In order to decrease the overall configuration time for the project, all modules of the library follow the approach of Spring Starters. Thus, it's enough to import the dependency to get started.
+In order to decrease the overall configuration time for the project, all modules of the library follow the approach of Spring Starters. Thus, it's enough to import the dependency to get started.<br>
+프로젝트의 전체 구성 시간을 줄이기 위해 라이브러리의 모든 모듈은 Spring Starters 접근 방식을 따릅니다. 따라서 의존성을 가져오기만 하면 시작할 수 있습니다.
 
-Below the list of the quartz-manager modules you can import.
+Below the list of the quartz-manager modules you can import.<br>
+다음은 가져올 수 있는 quartz-manager 모듈 목록입니다.
 
-## Quartz Manager Starter API Lib
+## Quartz Manager Starter API Lib(Quartz Manager Starter API 라이브러리)
 This is the only mandatory module of the library.   
-Add the dependency, make eligible for Quart Manager the job classes and set the props in your `application.properties` file.
+Add the dependency, make eligible for Quart Manager the job classes and set the props in your `application.properties` file.<br>
+이것은 라이브러리의 유일한 필수 모듈입니다.
+의존성을 추가하고 job 클래스를 Quartz Manager에서 처리 가능한 상태로 설정하고 application.properties 파일에 속성을 설정합니다.
 
-### Step 1. Dependency
+### Step 1. Dependency(의존성 추가)
 
 #### Maven
 ```
@@ -108,7 +111,8 @@ implementation group: 'it.fabioformosa.quartz-manager', name: 'quartz-manager-st
 
 ### Step 2. Quartz Manager Job Classes
 The job classes, which can be eligible for triggers managed by Quartz Manager, must extend the super-class `AbstractLoggingJob`. 
-In this way, Quartz Manager is able to collect and display the outcomes at the UI console.
+In this way, Quartz Manager is able to collect and display the outcomes at the UI console.<br>
+Quartz Manager에서 처리 가능한 트리거를 위해 job 클래스는 AbstractLoggingJob 슈퍼 클래스를 확장해야 합니다. 이렇게 하면 Quartz Manager가 실행 결과를 수집하고 UI 콘솔에서 표시할 수 있습니다.
 
  ```
  public class SampleJob extends AbstractLoggingJob {
@@ -122,7 +126,7 @@ In this way, Quartz Manager is able to collect and display the outcomes at the U
 }
 ```
 
-### Step 3. Quartz Manager API - App Props
+### Step 3. Quartz Manager API - App Props(앱 속성)
 
 | Property                           | Values   |Mandatory | Default | Description                                                               |
 | :---                               |:---      |:---      |:---     |:--                                                                        |
@@ -131,8 +135,9 @@ In this way, Quartz Manager is able to collect and display the outcomes at the U
 
 
 ### REST API & OpenAPI Specification
-Set the app prop `quartz-manager.oas.enabled=true` if you want to expose the OpenApi Specification of the Quartz Manager APIs.  
-Reach out the swagger-ui at the URL:
+Set the app prop `quartz-manager.oas.enabled=true` if you want to expose the OpenApi Specification of the Quartz Manager APIs.<br>
+Quartz Manager API의 OpenAPI Specification을 노출하려면 app prop quartz-manager.oas.enabled=true로 설정하십시오. 
+Reach out the swagger-ui at the URL(Swagger-UI는 다음 URL에서 확인할 수 있습니다.):
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 If your project has already an OpenAPI instance and you've set `quartz-manager.oas.enabled=true`, then make sure to add an OpenApiGroup to group the API of your application. Quart Manager exposes its API in group called "Quartz Manager". If you use OAS Annotations:
