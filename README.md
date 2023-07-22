@@ -46,7 +46,7 @@ Quartz-Manager는 Quartz 스케줄러와 상호작용하기 위해 REST 엔드�
 
 
 # HOW IT WORKS
-Quartz Manager can either coexist with your existing instance of Quartz or it can import itself the Quartz dependency.<br>   
+Quartz Manager can either coexist with your existing instance of Quartz or it can import itself the Quartz dependency.  
 Quartz Manager는 기존 Quartz 인스턴스와 함께 공존할 수 있거나 자체적으로 Quartz 종속성을 가져와서 사용할 수 있습니다.
 
 In the first case, Quartz Manager is compatible with Quartz v2.3.x . Quartz Manager creates and configures its own instance of Quartz Scheduler and it manages only the jobs and the triggers created through it. Your other jobs and triggers, running in the existing quartz instance, are out of the scope of Quartz Manager.<br> 
