@@ -58,19 +58,19 @@ In the latter case, in which there isn't an existing quartz instance, you can re
 **FEATURES**
 **주요기능**
 * You can schedule a [Quartz Simple Trigger](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-05.html) which allows you to start a job now or in a specific date-time, to set it as a recurring job with a certain time frequency, unlimited or limited on the number of fires and within a certain end date.<br>
-* Quartz 간단한 트리거를 예약할 수 있으며, 작업을 지금 또는 특정 일시에 시작하고 일정한 시간 간격으로 반복되도록 설정하거나 실행 횟수를 무제한하거나 특정 종료 일시까지 제한할 수 있습니다.
+Quartz 간단한 트리거를 예약할 수 있으며, 작업을 지금 또는 특정 일시에 시작하고 일정한 시간 간격으로 반복되도록 설정하거나 실행 횟수를 무제한하거나 특정 종료 일시까지 제한할 수 있습니다.
   
 * You can start, pause and resume the quartz scheduler via API or clicking the start/stop buttons at the UI console.<br>
-* Quartz 스케줄러를 API를 통해 시작, 일시 중지 및 재개하거나 UI 콘솔의 시작/중지 버튼을 클릭하여 수행할 수 있습니다.
+Quartz 스케줄러를 API를 통해 시작, 일시 중지 및 재개하거나 UI 콘솔의 시작/중지 버튼을 클릭하여 수행할 수 있습니다.
   
 * Leveraging on an active web-socket, the `Quartz-Manager-UI` updates in real time the progress bar and it displays the list of the latest logs produced by your quartz job.<br>
-* 활성 웹소켓을 활용하여 Quartz-Manager-UI에서 프로그레스 바를 실시간으로 업데이트하고 Quartz 작업에서 생성된 최신 로그 목록을 표시합니다.
+활성 웹소켓을 활용하여 Quartz-Manager-UI에서 프로그레스 바를 실시간으로 업데이트하고 Quartz 작업에서 생성된 최신 로그 목록을 표시합니다.
   
 * You can enable a secure layer, if your project doesn't have any, to give access at the API and the UI only to authenticated users.<br>
-* 프로젝트에 보안 계층이 없는 경우 보안 계층을 활성화하여 API와 UI에 대해 인증된 사용자만 접근할 수 있도록 할 수 있습니다.
+프로젝트에 보안 계층이 없는 경우 보안 계층을 활성화하여 API와 UI에 대해 인증된 사용자만 접근할 수 있도록 할 수 있습니다.
   
 * You can enable a persistent layer, to persist the config and the progress of your trigger, in a postgresql database.<br>
-* PostgreSQL 데이터베이스에 구성 및 트리거 진행 상태를 영속적으로 저장하기 위해 영속성 계층을 활성화할 수 있습니다.
+PostgreSQL 데이터베이스에 구성 및 트리거 진행 상태를 영속적으로 저장하기 위해 영속성 계층을 활성화할 수 있습니다.
 
 # GET STARTED
 
