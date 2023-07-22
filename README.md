@@ -20,16 +20,24 @@
 [SUPPORT THE PROJECT](https://github.com/fabioformosa/quartz-manager#%EF%B8%8F-support-the-project-%EF%B8%8F)
 
 # QUARTZ MANAGER
-In the last decade, the [Quartz Scheduler](http://www.quartz-scheduler.org/) has become the most adopted opensource job scheduling library for Java applications.  
+In the last decade, the [Quartz Scheduler](http://www.quartz-scheduler.org/) has become the most adopted opensource job scheduling library for Java applications.
 
-**Quartz Manager** enriches it with a **REST API** layer and a handy **UI console** to easily control and monitor a Quartz Scheduler.  
+지난 10년 동안 Quartz 스케줄러는 Java 애플리케이션을 위한 가장 많이 사용되는 오픈소스 작업 스케줄링 라이브러리로 자리 잡았습니다.
 
-Quartz Manager is a Java library you can import in your Spring-Based Web Application to run scheduled jobs, start&stop them and get the job outcomes. You can do it through HTTP calls to the the Quartz Manager API or in a visual manner through the Quartz Manager UI dashboard.  
+**Quartz Manager** enriches it with a **REST API** layer and a handy **UI console** to easily control and monitor a Quartz Scheduler.
+
+**Quartz Manager**는 REST API 계층과 편리한 UI 콘솔을 추가하여 Quartz 스케줄러를 쉽게 제어하고 모니터링할 수 있도록 개선한 것입니다.
+
+Quartz Manager is a Java library you can import in your Spring-Based Web Application to run scheduled jobs, start&stop them and get the job outcomes. You can do it through HTTP calls to the the Quartz Manager API or in a visual manner through the Quartz Manager UI dashboard.
+
+Quartz Manager는 Spring 기반 웹 애플리케이션에서 사용할 수 있는 Java 라이브러리로, 예약된 작업을 실행, 시작 및 중지하고 작업 결과를 가져올 수 있습니다. Quartz Manager API를 통해 HTTP 호출을 사용하거나 시각적 방법으로 Quartz Manager UI 대시보드를 통해 이 작업을 수행할 수 있습니다.
 
 
 ## QUARTZ MANAGER UI
 The **Quartz Manager UI** is a dashboard in the form of a single-page-application provided by the Quartz Manager Java library itself. You can have it embedded in your project, as well as you get embedded the Swagger UI.  
-It leverages the websockets to receive in real-time the trigger updates and the outcomes of the job executions.  
+It leverages the websockets to receive in real-time the trigger updates and the outcomes of the job executions.
+
+**Quartz Manager UI**는 Quartz Manager Java 라이브러리 자체에서 제공되는 대시보드 형태의 단일 페이지 애플리케이션입니다. 프로젝트에 내장시킬 수 있으며 Swagger UI와 함께 내장시킬 수도 있습니다. 웹소켓을 활용하여 트리거 업데이트와 작업 실행 결과를 실시간으로 받아볼 수 있습니다.
 
 ![](https://github.com/fabioformosa/quartz-manager/blob/master/quartz-manager-parent/quartz-manager-web-showcase/src/main/resources/quartz-manager-4-screenshot.png)
 
@@ -37,11 +45,15 @@ It leverages the websockets to receive in real-time the trigger updates and the 
 Quart-Manager exposes REST endpoints to interact with the Quartz Scheduler. This endpoints are invoked by Quartz Manager UI also.
 The REST API are documented by an OpenAPI Specification interface. 
 
+Quartz-Manager는 Quartz 스케줄러와 상호작용하기 위해 REST 엔드포인트를 노출합니다. 이 엔드포인트는 Quartz Manager UI에서도 호출됩니다. REST API는 OpenAPI Specification 인터페이스로 문서화되어 있습니다.
+
 ![](https://github.com/fabioformosa/quartz-manager/blob/master/quartz-manager-parent/quartz-manager-web-showcase/src/main/resources/quartz-manager-4-swagger.png)
 
 
 # HOW IT WORKS
 Quartz Manager can either coexist with your existing instance of Quartz or it can import itself the Quartz dependency.   
+
+Quartz Manager는 기존 Quartz 인스턴스와 함께 공존할 수 있거나 자체적으로 Quartz 종속성을 가져와서 사용할 수 있습니다.
 
 In the first case, Quartz Manager is compatible with Quartz v2.3.x . Quartz Manager creates and configures its own instance of Quartz Scheduler and it manages only the jobs and the triggers created through it. Your other jobs and triggers, running in the existing quartz instance, are out of the scope of Quartz Manager.  
 
