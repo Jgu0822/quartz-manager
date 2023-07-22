@@ -39,37 +39,37 @@ It leverages the websockets to receive in real-time the trigger updates and the 
 
 ## QUARTZ MANAGER API
 Quart-Manager exposes REST endpoints to interact with the Quartz Scheduler. This endpoints are invoked by Quartz Manager UI also.
-The REST API are documented by an OpenAPI Specification interface. 
+The REST API are documented by an OpenAPI Specification interface.<br>
 Quartz-Manager는 Quartz 스케줄러와 상호작용하기 위해 REST 엔드포인트를 노출합니다. 이 엔드포인트는 Quartz Manager UI에서도 호출됩니다. REST API는 OpenAPI Specification 인터페이스로 문서화되어 있습니다.
 
 ![](https://github.com/fabioformosa/quartz-manager/blob/master/quartz-manager-parent/quartz-manager-web-showcase/src/main/resources/quartz-manager-4-swagger.png)
 
 
 # HOW IT WORKS
-Quartz Manager can either coexist with your existing instance of Quartz or it can import itself the Quartz dependency.   
+Quartz Manager can either coexist with your existing instance of Quartz or it can import itself the Quartz dependency.<br>   
 Quartz Manager는 기존 Quartz 인스턴스와 함께 공존할 수 있거나 자체적으로 Quartz 종속성을 가져와서 사용할 수 있습니다.
 
-In the first case, Quartz Manager is compatible with Quartz v2.3.x . Quartz Manager creates and configures its own instance of Quartz Scheduler and it manages only the jobs and the triggers created through it. Your other jobs and triggers, running in the existing quartz instance, are out of the scope of Quartz Manager. 
+In the first case, Quartz Manager is compatible with Quartz v2.3.x . Quartz Manager creates and configures its own instance of Quartz Scheduler and it manages only the jobs and the triggers created through it. Your other jobs and triggers, running in the existing quartz instance, are out of the scope of Quartz Manager.<br> 
 첫 번째 경우, Quartz Manager는 Quartz v2.3.x와 호환됩니다. Quartz Manager는 자체적으로 Quartz 스케줄러 인스턴스를 생성하고 구성하며 해당 인스턴스를 통해 생성된 작업과 트리거만 관리합니다. 기존의 Quartz 인스턴스에서 실행 중인 다른 작업과 트리거는 Quartz Manager의 범위 밖입니다.
 
-In the latter case, in which there isn't an existing quartz instance, you can rely on Quartz Manager to speed up the setup of a Quartz instance, with a persistent storage also if you need it. Futhermore, if you start a bare project from scratch, just to run scheduled jobs, Quartz Manager comes with the option to enable a security layer to protect the API and the UI with an authentication model based on [JWT](https://jwt.io).
+In the latter case, in which there isn't an existing quartz instance, you can rely on Quartz Manager to speed up the setup of a Quartz instance, with a persistent storage also if you need it. Futhermore, if you start a bare project from scratch, just to run scheduled jobs, Quartz Manager comes with the option to enable a security layer to protect the API and the UI with an authentication model based on [JWT](https://jwt.io).<br>
 후자의 경우, 기존의 Quartz 인스턴스가 없는 경우 Quartz Manager를 가져와서 Quartz 인스턴스를 빠르게 설정할 수 있습니다. 필요한 경우 영구 저장소를 통해 지속성을 활성화할 수도 있습니다. 또한 예약된 작업만 실행하는 빈 프로젝트를 처음부터 시작하려는 경우, Quartz Manager는 JWT 기반 인증 모델을 사용하여 API와 UI를 보호하는 보안 계층을 활성화할 수 있습니다.
 
 **FEATURES**
 **주요기능**
-* You can schedule a [Quartz Simple Trigger](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-05.html) which allows you to start a job now or in a specific date-time, to set it as a recurring job with a certain time frequency, unlimited or limited on the number of fires and within a certain end date.
+* You can schedule a [Quartz Simple Trigger](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-05.html) which allows you to start a job now or in a specific date-time, to set it as a recurring job with a certain time frequency, unlimited or limited on the number of fires and within a certain end date.<br>
 * Quartz 간단한 트리거를 예약할 수 있으며, 작업을 지금 또는 특정 일시에 시작하고 일정한 시간 간격으로 반복되도록 설정하거나 실행 횟수를 무제한하거나 특정 종료 일시까지 제한할 수 있습니다.
   
-* You can start, pause and resume the quartz scheduler via API or clicking the start/stop buttons at the UI console.
+* You can start, pause and resume the quartz scheduler via API or clicking the start/stop buttons at the UI console.<br>
 * Quartz 스케줄러를 API를 통해 시작, 일시 중지 및 재개하거나 UI 콘솔의 시작/중지 버튼을 클릭하여 수행할 수 있습니다.
   
-* Leveraging on an active web-socket, the `Quartz-Manager-UI` updates in real time the progress bar and it displays the list of the latest logs produced by your quartz job.
+* Leveraging on an active web-socket, the `Quartz-Manager-UI` updates in real time the progress bar and it displays the list of the latest logs produced by your quartz job.<br>
 * 활성 웹소켓을 활용하여 Quartz-Manager-UI에서 프로그레스 바를 실시간으로 업데이트하고 Quartz 작업에서 생성된 최신 로그 목록을 표시합니다.
   
-* You can enable a secure layer, if your project doesn't have any, to give access at the API and the UI only to authenticated users.
+* You can enable a secure layer, if your project doesn't have any, to give access at the API and the UI only to authenticated users.<br>
 * 프로젝트에 보안 계층이 없는 경우 보안 계층을 활성화하여 API와 UI에 대해 인증된 사용자만 접근할 수 있도록 할 수 있습니다.
   
-* You can enable a persistent layer, to persist the config and the progress of your trigger, in a postgresql database.
+* You can enable a persistent layer, to persist the config and the progress of your trigger, in a postgresql database.<br>
 * PostgreSQL 데이터베이스에 구성 및 트리거 진행 상태를 영속적으로 저장하기 위해 영속성 계층을 활성화할 수 있습니다.
 
 # GET STARTED
