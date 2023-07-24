@@ -55,31 +55,43 @@ If you are not confident with maven CLI, you can start it by your IDE. For more 
 만약 Maven CLI에 자신이 없다면, IDE로 시작할 수 있습니다. 더 자세한 내용은 [spring boot ref.](http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html)를 참고하세요.
 
 
-## HOW TO RUN YOUR SCHEDULED JOB
+## HOW TO RUN YOUR SCHEDULED JOB - 작업 예약하기
 By default, `quartz-manager-web-showcase` executes the dummy job that logs "hello world!".
-Replace the dummy job (class: `it.fabioformosa.quartzmanager.jobs.SampleJob`) with yours. Follow these steps:
+Replace the dummy job (class: `it.fabioformosa.quartzmanager.jobs.SampleJob`) with yours. Follow these steps:<br>
+기본적으로 quartz-manager-web-showcase는 "hello world!"를 기록하는 더미 작업을 실행합니다. 이를 여러분의 작업으로 바꾸려면 다음 단계를 따릅니다:
 
-1. Extend the super class `it.fabioformosa.quartzmanager.jobs.AbstractLoggingJob`
-1. set property `quartz-manager.jobClassPackages` with the list of the java packages (comma separated) containing the job class eligible for Quartz Manager
+1. Extend the super class `it.fabioformosa.quartzmanager.jobs.AbstractLoggingJob`<br>
+it.fabioformosa.quartzmanager.jobs.SampleJob를 여러분의 작업으로 대체합니다.
+1. set property `quartz-manager.jobClassPackages` with the list of the java packages (comma separated) containing the job class eligible for Quartz Manager<br>
+여러분의 작업 클래스가 Quartz Manager에서 인식되도록 하려면, 해당 클래스가 속한 자바 패키지를 quartz-manager.jobClassPackages 속성에 지정합니다.
 
-## HOW TO CHANGE SETTINGS
-* Num of Threads: `/quartz-manager-parent/quartz-manager-web/src/main/resources/managed-quartz.properties`
-* Credentials: To change admin's password, set app property (or ENV var) `quartz-manager.security.accounts.in-memory.users[0].passord`
-* quartz-manager backend context path (default `/quartz-manager`) and port (default `8080`): `/quartz-manager/src/main/resources/application.properties`
+## HOW TO CHANGE SETTINGS - 설정 변경하기
+* Num of Threads: `/quartz-manager-parent/quartz-manager-web/src/main/resources/managed-quartz.properties`<br>
+스레드 수 변경: /quartz-manager-parent/quartz-manager-web/src/main/resources/managed-quartz.properties 파일에서 설정합니다.
+* Credentials: To change admin's password, set app property (or ENV var) `quartz-manager.security.accounts.in-memory.users[0].passord`<br>
+자격 증명 변경: admin의 비밀번호를 변경하려면 quartz-manager.security.accounts.in-memory.users[0].passord 속성을 수정합니다.
+* quartz-manager backend context path (default `/quartz-manager`) and port (default `8080`): `/quartz-manager/src/main/resources/application.properties`<br>
+Quartz Manager 백엔드 컨텍스트 경로 (기본값: /quartz-manager) 및 포트 (기본값: 8080) 변경: /quartz-manager/src/main/resources/application.properties 파일에서 설정합니다.
 
-## Tech Overview
+## Tech Overview - 기술 개요
 
-**Backend Stack** Java 9, Spring Boot 2.5.6 (Spring MVC 5.3.12, Spring Security 5.5.3), Quartz Scheduler 2.3.2
+**Backend Stack** Java 9, Spring Boot 2.5.6 (Spring MVC 5.3.12, Spring Security 5.5.3), Quartz Scheduler 2.3.2<br>
+백엔드 스택: Java 9, Spring Boot 2.5.6 (Spring MVC 5.3.12, Spring Security 5.5.3), Quartz Scheduler 2.3.2
 
-**Frontend** Angular 14.2.12, Web-Socket (stompjs 2.3.3)
+**Frontend** Angular 14.2.12, Web-Socket (stompjs 2.3.3)<br>
+프론트엔드: Angular 14.2.12, Web-Socket (stompjs 2.3.3)
 
-**Style** Angular Material 14, FontAwesome 5
+**Style** Angular Material 14, FontAwesome 5<br>
+스타일: Angular Material 14, FontAwesome 5
 
 Starting from Quartz Manager v2.x.x, the new structure of project is:
 * Multi-module maven project: REST API backend
-* Angular 14: Single Page Application frontend
+* Angular 14: Single Page Application frontend<br>
+Quartz Manager v2.x.x부터 새로운 프로젝트 구조로 변경되었으며,
+REST API 백엔드와 Angular 14 기반의 단일 페이지 애플리케이션 프론트엔드로 구성됩니다.
 
 (The first version of quartz manager was a monolithic backend that provided also frontend developed with angularjs 1.6.x. You can find it at the branch 1.x.x)
+(첫 번째 버전의 Quartz Manager는 간단한 백엔드를 제공하며, AngularJS 1.6.x로 개발된 프론트엔드도 포함하는 모놀리식 구조였습니다. 이 버전은 브랜치 1.x.x에서 찾을 수 있습니다.)
 
 ## Contributes
 
